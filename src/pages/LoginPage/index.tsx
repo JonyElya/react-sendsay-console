@@ -4,8 +4,9 @@ import { withRouter } from 'react-router-dom';
 
 import { Button, Error, Input } from 'src/components';
 import styled from 'styled-components';
-import useAuth from '../../hooks/useAuth';
+import useAuth from 'src/hooks/useAuth';
 import validate from './validator';
+import { LOGIN, PASSWORD, SUB_LOGIN } from './consts';
 
 interface IProps {
   history: any;
@@ -70,9 +71,9 @@ const LoginPage: React.FC<IProps> = ({ history }) => {
             <FormWrapper>
               <Caption>API-консолька</Caption>
               {error && <Error>{error}</Error>}
-              <Input label="Логин" required fullWidth name="login" />
-              <Input label="Сублогин" fullWidth name="sublogin" />
-              <Input label="Пароль" fullWidth required name="password" type="password" />
+              <Input label={LOGIN} required fullWidth name="login" />
+              <Input label={SUB_LOGIN} fullWidth name="sublogin" />
+              <Input label={PASSWORD} fullWidth required name="password" type="password" />
               <Button disabled={hasValidationErrors} loading={loading} onClick={handleSubmit}>
                 Отправить
               </Button>
