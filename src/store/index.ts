@@ -11,6 +11,7 @@ const persistConfig = {
 };
 
 const reducers = combineReducers({ auth: authSlice.reducer, console: consoleSlice.reducer });
+
 const persistReducers = persistReducer(persistConfig, reducers);
 
 export const store = configureStore({
