@@ -7,6 +7,7 @@ interface IUseAuth {
   loading: boolean;
   isAuth: boolean;
   error: string;
+  user: IUser;
 }
 
 const useAuth = (): IUseAuth => {
@@ -17,6 +18,7 @@ const useAuth = (): IUseAuth => {
   const loading = useSelector(({ auth }: IStore) => auth.loading);
   const isAuth = useSelector(({ auth }: IStore) => !!auth.sessionKey?.length);
   const error = useSelector(({ auth }: IStore) => auth.error);
+  const user = useSelector(({ auth }: IStore) => ({ login: auth.login, sublogin: auth.sublogin }));
 
   return {
     onLogin,
@@ -24,6 +26,7 @@ const useAuth = (): IUseAuth => {
     loading,
     isAuth,
     error,
+    user,
   };
 };
 

@@ -20,14 +20,26 @@ declare interface IAuthStore extends ResponseAuthData {
   error: string;
 }
 
-declare interface IError {
-  id: string;
-  explain: string;
+type Status = 'success' | 'failed';
+
+declare interface IRequest {
+  action: string;
 }
 
-declare interface ResponseConsoleData {}
+declare interface ResponseConsoleData {
+  request: IRequest | string;
+  response: string;
+  status?: Status;
+}
+
+declare interface IHistory extends ResponseConsoleData {
+  id?: number;
+}
 
 declare interface IConsoleStore extends ResponseConsoleData {
   loading: boolean;
-  error: string;
+  history: IHistory[];
+  hasError: boolean;
 }
+
+declare type RequestConsoleData = Pick<ResponseConsoleData, 'request'>;

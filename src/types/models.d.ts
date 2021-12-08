@@ -3,3 +3,10 @@ declare interface IAuthFormValues {
   sublogin: string;
   password: string;
 }
+
+declare interface IUser {
+  login: string;
+  sublogin: string | null;
+}
+
+declare type THoverColor = 'blue' | 'red';
