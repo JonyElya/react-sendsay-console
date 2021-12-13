@@ -1,11 +1,12 @@
 import { LOGIN_VALID_MESSAGE, PASSWORD_VALID_MESSAGE, REQUIRED_MESSAGE } from './consts';
 
+
 const regexLogin = new RegExp(/^[a-zA-Z](.[a-zA-Z0-9.@_-]*)$/gi);
 const cyrillic = new RegExp(/[а-я]/i);
 
 const validate = ({ login, password }: IAuthFormValues) => {
   const errors: any = {};
-  if (!login) {
+
     errors.login = REQUIRED_MESSAGE;
   }
   if (!login?.match(regexLogin)) {

@@ -2,12 +2,11 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-import { store } from 'src/store';
-
 import { persistStore } from 'redux-persist';
+
+import { PrivateRoute } from 'src/components';
+import { store } from 'src/store';
 import LoginPage from './pages/LoginPage';
-import PrivateRoute from './components/PrivateRoute';
 import ConsolePage from './pages/ConsolePage';
 
 const persistor = persistStore(store);

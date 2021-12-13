@@ -11,7 +11,7 @@ interface IProps {
   color?: string;
 }
 
-const Icon = ({ name, width, height, color }: IProps) => {
+const Icon = ({ name, width, height, color, ...rest }: IProps) => {
   const IconComponent = icons[name];
 
   if (!IconComponent) {
@@ -26,6 +26,7 @@ const Icon = ({ name, width, height, color }: IProps) => {
         color: color || 'inherit',
         display: 'inline-block',
       }}
+      {...rest}
     />
   );
 };
